@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syeda Fatima Rizwan | About Me</title>
+    <!-- Internal CSS only, replacing Tailwind to meet project guidelines -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        :root {
+            --color-bg-dark: #121a24;
+            --color-surface-dark: #1a2430;
+            --color-text-light: #c9d1d9;
+            --color-text-dim: #9ca3af; /* Gray-400 equivalent */
+            --color-accent: #4ade80; /* Green-400 */
+            --color-accent-dark: #16a34a; /* Green-600 */
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-inter);
+            background-color: var(--color-bg-dark); 
+            color: var(--color-text-light);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px; /* max-w-7xl */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .text-xl { font-size: 1.25rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .mb-12 { margin-bottom: 3rem; }
+        .py-20 { padding-top: 5rem; padding-bottom: 5rem; }
+        .pt-20 { padding-top: 5rem; }
+        .pb-12 { padding-bottom: 3rem; }
+        .border-t { border-top: 1px solid #374151; /* Gray-800 */ }
+
+        /* Header/Navigation */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background-color: rgba(18, 26, 36, 0.9); /* Opaque background */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        nav a.logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-accent);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a {
+            color: var(--color-text-light);
+            text-decoration: none;
+            font-size: 1.125rem;
+            margin-left: 1.5rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--color-accent);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-content {
+            max-width: 64rem;
+            padding-top: 5rem;
+            padding-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 4rem; /* sm:text-7xl lg:text-8xl */
+            font-weight: 800;
+            margin-top: 1rem;
+            margin-bottom: 1.5rem;
+            /* Gradient Text Effect - cannot fully replicate Tailwind's bg-clip-text easily */
+            color: var(--color-accent);
+        }
+        @media (min-width: 640px) {
+            .hero h1 { font-size: 4.5rem; }
+        }
+        @media (min-width: 1024px) {
+            .hero h1 { font-size: 5rem; }
+        }
+
+
+        .hero p {
+            font-size: 1.125rem;
+            color: var(--color-text-dim);
+            max-width: 48rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            padding-top: 2rem;
+        }
+
+        .btn {
+            padding: 0.75rem 2rem;
+            font-weight: 600;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background-color: var(--color-accent-dark);
+            color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+        .btn-primary:hover {
+            background-color: #15803d; /* Darker green */
+            transform: scale(1.05);
+        }
+
+        .btn-secondary {
+            background-color: #374151; /* Gray-700 */
+            color: var(--color-text-light);
+            border: 1px solid #4b5563; /* Gray-600 */
+        }
+        .btn-secondary:hover {
+            background-color: #4b5563; /* Gray-600 */
+            transform: scale(1.05);
+        }
+
+        /* About Section */
+        .about-section {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+        @media (min-width: 768px) {
+            .about-section {
+                flex-direction: row;
+                align-items: center;
+            }
+        }
+
+        .about-image {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        @media (min-width: 768px) {
+            .about-image {
+                width: 33.333%;
+            }
+        }
+
+        /* Note: Using the placeholder with the content ID from the uploaded image for compliance */
+        .about-image img {
+            width: 12rem; /* w-48 */
+            height: 12rem; /* h-48 */
+            border-radius: 9999px; /* rounded-full */
+            border: 4px solid var(--color-accent);
+            object-fit: cover;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        @media (min-width: 640px) {
+            .about-image img {
+                width: 16rem; /* sm:w-64 */
+                height: 16rem; /* sm:h-64 */
+            }
+        }
+
+        .about-content {
+            width: 100%;
+            font-size: 1.125rem;
+            color: var(--color-text-light);
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+        @media (min-width: 768px) {
+            .about-content {
+                width: 66.666%;
+            }
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+            border-top: 1px solid #374151;
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--color-text-dim);
+        }
+
+        footer a {
+            color: var(--color-text-dim);
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--color-accent);
+        }
+        
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="container">
+            <a href="aboutus.html" class="logo">Syeda Fatima Rizwan</a>
+            
+            <!-- Desktop Nav Links -->
+            <div class="nav-links">
+                <a href="aboutus.html" style="color: var(--color-accent); font-weight: 600;">About Us</a>
+                <a href="projects.html">Projects & Contact</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        
+        <!-- 1. Hero Section (Introduction and Nav bar) -->
+        <section class="hero" id="hero">
+            <div class="hero-content text-center">
+                <p class="text-xl" style="color: var(--color-accent); font-weight: 500;">Hello, I'm Syeda Fatima Rizwan,</p>
+                <h1>
+                    Designing Digital Experiences with Precision and Passion.
+                </h1>
+                <p>
+                    A Computer Science student blending technical problem-solving with creative design and analysis.
+                </p>
+                <div class="hero-actions">
+                    <a href="projects.html#projects" class="btn btn-primary">View Projects</a>
+                    <a href="projects.html#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. About Section (Brief description and picture) -->
+        <section id="about" class="py-20 border-t">
+            <h2 class="text-4xl font-bold text-center mb-12" style="color: var(--color-accent);">About Me</h2>
+            <div class="about-section">
+                <!-- Profile Image/Avatar (Using the provided image as an inaccessible placeholder link) -->
+                <div class="about-image">
+                    <!-- The exact image cannot be rendered, but we use a high-quality placeholder that fits the style. -->
+                    <img src="https://placehold.co/300x300/1f2937/ffffff?text=Syeda+F.+Rizwan" alt="Syeda Fatima Rizwan Profile Avatar">
+                </div>
+                <!-- Text Content -->
+                <div class="about-content">
+                    <p>
+                        I’m Syeda Fatima Rizwan, a Computer Science student who enjoys exploring technology, solving problems, and finding creative ways to bring ideas to life.
+                    </p>
+                    <p>
+                        I’m constantly learning—whether it’s improving my programming skills, experimenting with design, or working on projects that challenge me to think differently. I value creativity, clarity, and growth, and I love environments where I can collaborate, adapt, and keep expanding what I know.
+                    </p>
+                    <p>
+                        Outside of academics, I enjoy writing, exploring new technologies, and anything that lets me think creatively and analytically.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Syeda Fatima Rizwan. All rights reserved. | Styled with Internal CSS.</p>
+            <div style="margin-top: 1rem;">
+                <a href="mailto:syeda.fatima.rizwan.325@gmail.com">syeda.fatima.rizwan.325@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
